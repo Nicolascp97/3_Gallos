@@ -16,9 +16,6 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1459753431959890');
   fbq('track', 'PageView');
-  if (sessionStorage.getItem('ms_guia_access') === '1') {
-    fbq('track', 'ViewContent', {content_name: 'Guia 8 Preguntas', content_category: 'Lead Magnet'});
-  }
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1459753431959890&ev=PageView&noscript=1"
@@ -709,7 +706,10 @@
 
 <body>
 <script>
-  if (sessionStorage.getItem('ms_guia_access') !== '1') {
+  if (sessionStorage.getItem('ms_guia_access') === '1') {
+    sessionStorage.removeItem('ms_guia_access');
+    fbq('track', 'ViewContent', {content_name: 'Guia 8 Preguntas', content_category: 'Lead Magnet'});
+  } else {
     window.location.replace('index.html#regalo');
   }
 </script>
