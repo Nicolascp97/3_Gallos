@@ -656,6 +656,54 @@
       letter-spacing: 0.12em;
       color: var(--border);
     }
+
+    /* ── DOWNLOAD BAR ── */
+    .download-bar {
+      background: var(--green);
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin: var(--space-8) 0;
+    }
+
+    .download-bar-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+
+    .download-bar-text strong {
+      display: block;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 150ms ease, border-color 150ms ease;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+    }
+
+    .download-btn:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
+    .download-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
   </style>
 </head>
 
@@ -694,6 +742,18 @@
       Lo que todo comprador de lote rural debería preguntarle al vendedor antes de poner su firma.
     </p>
   </section>
+
+  <!-- DESCARGA PDF -->
+  <div class="download-bar">
+    <div class="download-bar-text">
+      <strong>Descarga esta guía en PDF</strong>
+      Guárdala y consúltala antes de firmar cualquier terreno
+    </div>
+    <a href="assets/guia-8-preguntas-monte-sur.pdf" download="8-Preguntas-Antes-de-Firmar-Monte-Sur.pdf" class="download-btn">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar PDF
+    </a>
+  </div>
 
   <!-- INTRO COMPACTO -->
   <section class="intro-compact">
