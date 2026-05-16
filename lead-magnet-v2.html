@@ -639,6 +639,11 @@
 </head>
 
 <body>
+<script>
+  if (sessionStorage.getItem('ms_guia_access') !== '1') {
+    window.location.replace('index.html#regalo');
+  }
+</script>
 <div class="page">
 
   <!-- HEADER -->

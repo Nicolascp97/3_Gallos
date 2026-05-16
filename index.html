@@ -1122,7 +1122,7 @@ body.modal-open { overflow: hidden; }
           <div class="diff-card-back">
             <div>
               <div class="diff-back-title">Independencia hídrica total</div>
-              <div class="diff-back-body">Factibilidad técnica verificada con profundidad estimada de 80–120 |
+              <div class="diff-back-body">Factibilidad técnica verificada con profundidad estimada de 60-100mts |
                 m y caudal suficiente para uso residencial. No dependerás de red pública ni concesionarias.</div>
             </div>
             <div class="diff-back-hint">TOCA PARA VOLVER</div>
@@ -1564,6 +1564,8 @@ body.modal-open { overflow: hidden; }
         }).catch(() => {});
       }
     } catch (err) { /* fallback silencioso */ }
+
+    sessionStorage.setItem('ms_guia_access', '1');
 
     form.classList.add('is-fading');
     setTimeout(() => {
