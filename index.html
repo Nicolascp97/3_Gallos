@@ -1531,7 +1531,7 @@ body.modal-open { overflow: hidden; }
   const validators = {
     nombre: (v) => v.trim().length >= 2 || 'Ingresa tu nombre completo',
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Email inválido',
-    whatsapp: (v) => v.replace(/\D/g, '').length >= 8 || 'Número inválido'
+    whatsapp: (v) => v.trim() === '' || v.replace(/\D/g, '').length >= 8 || 'Número inválido'
   };
 
   const showError = (input, msg) => {
