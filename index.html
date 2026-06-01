@@ -1233,7 +1233,7 @@ body.locked{overflow:hidden}
     </div>
 
     <!-- PLANO MAESTRO INTERACTIVO: SVG generado de las coordenadas reales del SPR (Lote 5, Emilio Morales) -->
-    <!-- TODO: revisar con cliente - confirmar que 5-A=Lote01, 5-B=Lote02 ... 5-G=Lote07 (ver LOT_MAP en JS) -->
+    <!-- Correspondencia confirmada: 5-A=Lote01(vendido), 5-B=Lote02 ... 5-G=Lote07 -->
     <figure class="plano-figure reveal d1" aria-label="Plano maestro del loteo Monte Sur">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1020" id="planoSvg" style="display:block;width:100%;height:auto">
         <style>
@@ -1618,8 +1618,7 @@ document.querySelectorAll('.diff-card').forEach(card => {
 
 // ===== PLANO INTERACTIVO: poligonos reales del SPR <-> tarjetas de lote =====
 (function(){
-  // TODO: revisar con cliente - confirmar correspondencia entre numero de lote (landing)
-  // y nombre del SPR (5-A a 5-G). Ajustar este mapa segun confirmacion.
+  // Correspondencia confirmada: 5-A=01, 5-B=02 ... 5-G=07 (SPR Lote 5, Emilio Morales)
   const LOT_MAP = {
     '01':'5-A', '02':'5-B', '03':'5-C', '04':'5-D',
     '05':'5-E', '06':'5-F', '07':'5-G'
