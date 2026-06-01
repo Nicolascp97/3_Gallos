@@ -1019,6 +1019,23 @@ body.locked{overflow:hidden}
 .testimonial-author{font-size:14px;color:var(--text-muted);font-weight:500}
 .testimonial-photo{margin-top:16px;min-height:120px}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+
+/* CAMBIO EXTRA: plano maestro interactivo (cada lote se ubica en el plano) */
+.plano-figure{position:relative;max-width:880px;margin:0 auto 24px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 0 6px rgba(42,86,37,.04),0 0 0 7px var(--border);background:var(--green-tint);min-height:260px}
+.plano-figure img{display:block;width:100%;height:auto}
+.plano-fallback{position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--green);font-size:14px;letter-spacing:.04em;line-height:1.5}
+.plano-marker{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;border:2px solid #fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:transform .35s var(--ease-spring),box-shadow .35s;z-index:2}
+.plano-marker.avail{background:var(--green)}
+.plano-marker.sold{background:#A8957E}
+.plano-marker:hover{transform:translate(-50%,-50%) scale(1.18)}
+.plano-marker.active{transform:translate(-50%,-50%) scale(1.4);box-shadow:0 0 0 6px rgba(196,149,58,.4),0 4px 14px rgba(0,0,0,.4);z-index:3}
+.plano-hint{text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:24px;letter-spacing:.02em}
+.lot-card[data-lot]{cursor:pointer}
+.lot-card.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 20px 44px -20px rgba(196,149,58,.3)}
+.lot-locate{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--green);opacity:.75;transition:opacity .25s}
+.lot-locate svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+.lot-card:hover .lot-locate{opacity:1}
+.lot-card.sold-lot .lot-locate{color:#A8957E}
 </style>
 </head>
 <body>
@@ -1221,14 +1238,31 @@ body.locked{overflow:hidden}
       <div class="lot-status-item"><span class="lot-dot sold"></span> 1 vendido</div>
     </div>
 
+    <!-- CAMBIO EXTRA: plano maestro interactivo - cada lote se ubica en el plano al tocar su tarjeta -->
+    <figure class="plano-figure reveal d1">
+      <!-- TODO: revisar con cliente - reemplazar por la imagen real del plano maestro en assets/plano-maestro.png -->
+      <img src="assets/plano-maestro.png" alt="Plano maestro del loteo Monte Sur con la ubicacion de cada lote" loading="lazy"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="plano-fallback" style="display:none">[PLANO MAESTRO &mdash; el cliente insertar&aacute; la imagen del loteo en assets/plano-maestro.png]</div>
+      <!-- TODO: revisar con cliente - ajustar left/top (%) de cada marcador a la posicion real del lote en el plano -->
+      <button type="button" class="plano-marker sold"  data-lot="01" style="left:28%;top:30%" aria-label="Ubicacion del Lote 01 (vendido)">01</button>
+      <button type="button" class="plano-marker avail" data-lot="02" style="left:45%;top:22%" aria-label="Ubicacion del Lote 02">02</button>
+      <button type="button" class="plano-marker avail" data-lot="03" style="left:63%;top:30%" aria-label="Ubicacion del Lote 03">03</button>
+      <button type="button" class="plano-marker avail" data-lot="04" style="left:71%;top:48%" aria-label="Ubicacion del Lote 04">04</button>
+      <button type="button" class="plano-marker avail" data-lot="05" style="left:60%;top:67%" aria-label="Ubicacion del Lote 05">05</button>
+      <button type="button" class="plano-marker avail" data-lot="06" style="left:42%;top:70%" aria-label="Ubicacion del Lote 06">06</button>
+      <button type="button" class="plano-marker avail" data-lot="07" style="left:30%;top:52%" aria-label="Ubicacion del Lote 07">07</button>
+    </figure>
+    <p class="plano-hint reveal d2">Toca un lote para ubicarlo en el plano maestro</p>
+
     <div class="lots-grid">
-      <div class="lot-card sold-lot reveal"><div class="lot-num">01</div><div class="lot-meta">5.000 m2 · vista NW</div><span class="lot-badge">VENDIDO</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">02</div><div class="lot-meta">5.000 m2 · vista N</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">03</div><div class="lot-meta">5.200 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d3"><div class="lot-num">04</div><div class="lot-meta">5.000 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal"><div class="lot-num">05</div><div class="lot-meta">5.300 m2 · vista SW</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">06</div><div class="lot-meta">5.000 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">07</div><div class="lot-meta">5.100 m2 · vista NW</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card sold-lot reveal" data-lot="01"><div class="lot-num">01</div><div class="lot-meta">5.000 m² · vista NW</div><span class="lot-badge">VENDIDO</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d1" data-lot="02"><div class="lot-num">02</div><div class="lot-meta">5.000 m² · vista N</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d2" data-lot="03"><div class="lot-num">03</div><div class="lot-meta">5.200 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d3" data-lot="04"><div class="lot-num">04</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal" data-lot="05"><div class="lot-num">05</div><div class="lot-meta">5.300 m² · vista SW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d1" data-lot="06"><div class="lot-num">06</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d2" data-lot="07"><div class="lot-num">07</div><div class="lot-meta">5.100 m² · vista NW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
     </div>
   </div>
 </section>
@@ -1549,6 +1583,25 @@ document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
 document.querySelectorAll('.diff-card').forEach(card => {
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 });
+
+// ===== PLANO INTERACTIVO: lote <-> marcador en el plano maestro =====
+(function(){
+  const plano = document.getElementById('plano');
+  if(!plano) return;
+  const markers = plano.querySelectorAll('.plano-marker');
+  const cards = plano.querySelectorAll('.lot-card[data-lot]');
+  const figure = plano.querySelector('.plano-figure');
+  function activate(lote){
+    markers.forEach(m => m.classList.toggle('active', m.dataset.lot === lote));
+    cards.forEach(c => c.classList.toggle('active', c.dataset.lot === lote));
+  }
+  markers.forEach(m => m.addEventListener('click', () => activate(m.dataset.lot)));
+  cards.forEach(c => c.addEventListener('click', () => {
+    activate(c.dataset.lot);
+    // En movil, lleva el plano a la vista para ver el marcador resaltado
+    if(figure && window.innerWidth <= 768) figure.scrollIntoView({behavior:'smooth', block:'center'});
+  }));
+})();
 
 // ===== SPOTLIGHT BORDER (mouse glow on cards) =====
 // Only on non-touch devices
