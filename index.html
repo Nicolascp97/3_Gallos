@@ -1021,14 +1021,8 @@ body.locked{overflow:hidden}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
 
 /* CAMBIO EXTRA: plano maestro interactivo (cada lote se ubica en el plano) */
-.plano-figure{position:relative;max-width:880px;margin:0 auto 24px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 0 6px rgba(42,86,37,.04),0 0 0 7px var(--border);background:var(--green-tint);min-height:260px}
-.plano-figure img{display:block;width:100%;height:auto}
-.plano-fallback{position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--green);font-size:14px;letter-spacing:.04em;line-height:1.5}
-.plano-marker{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;border:2px solid #fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:transform .35s var(--ease-spring),box-shadow .35s;z-index:2}
-.plano-marker.avail{background:var(--green)}
-.plano-marker.sold{background:#A8957E}
-.plano-marker:hover{transform:translate(-50%,-50%) scale(1.18)}
-.plano-marker.active{transform:translate(-50%,-50%) scale(1.4);box-shadow:0 0 0 6px rgba(196,149,58,.4),0 4px 14px rgba(0,0,0,.4);z-index:3}
+.plano-figure{position:relative;max-width:640px;margin:0 auto 24px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 0 6px rgba(42,86,37,.04),0 0 0 7px var(--border);background:var(--white)}
+.plano-figure svg{display:block;width:100%;height:auto}
 .plano-hint{text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:24px;letter-spacing:.02em}
 .lot-card[data-lot]{cursor:pointer}
 .lot-card.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 20px 44px -20px rgba(196,149,58,.3)}
@@ -1238,22 +1232,60 @@ body.locked{overflow:hidden}
       <div class="lot-status-item"><span class="lot-dot sold"></span> 1 vendido</div>
     </div>
 
-    <!-- CAMBIO EXTRA: plano maestro interactivo - cada lote se ubica en el plano al tocar su tarjeta -->
-    <figure class="plano-figure reveal d1">
-      <!-- TODO: revisar con cliente - reemplazar por la imagen real del plano maestro en assets/plano-maestro.png -->
-      <img src="assets/plano-maestro.png" alt="Plano maestro del loteo Monte Sur con la ubicacion de cada lote" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="plano-fallback" style="display:none">[PLANO MAESTRO &mdash; el cliente insertar&aacute; la imagen del loteo en assets/plano-maestro.png]</div>
-      <!-- TODO: revisar con cliente - ajustar left/top (%) de cada marcador a la posicion real del lote en el plano -->
-      <button type="button" class="plano-marker sold"  data-lot="01" style="left:28%;top:30%" aria-label="Ubicacion del Lote 01 (vendido)">01</button>
-      <button type="button" class="plano-marker avail" data-lot="02" style="left:45%;top:22%" aria-label="Ubicacion del Lote 02">02</button>
-      <button type="button" class="plano-marker avail" data-lot="03" style="left:63%;top:30%" aria-label="Ubicacion del Lote 03">03</button>
-      <button type="button" class="plano-marker avail" data-lot="04" style="left:71%;top:48%" aria-label="Ubicacion del Lote 04">04</button>
-      <button type="button" class="plano-marker avail" data-lot="05" style="left:60%;top:67%" aria-label="Ubicacion del Lote 05">05</button>
-      <button type="button" class="plano-marker avail" data-lot="06" style="left:42%;top:70%" aria-label="Ubicacion del Lote 06">06</button>
-      <button type="button" class="plano-marker avail" data-lot="07" style="left:30%;top:52%" aria-label="Ubicacion del Lote 07">07</button>
+    <!-- PLANO MAESTRO INTERACTIVO: SVG generado de las coordenadas reales del SPR (Lote 5, Emilio Morales) -->
+    <!-- TODO: revisar con cliente - confirmar que 5-A=Lote01, 5-B=Lote02 ... 5-G=Lote07 (ver LOT_MAP en JS) -->
+    <figure class="plano-figure reveal d1" aria-label="Plano maestro del loteo Monte Sur">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1020" id="planoSvg" style="display:block;width:100%;height:auto">
+        <style>
+          .lote{fill:#2A5625;fill-opacity:.22;stroke:#2A5625;stroke-width:1.8;stroke-linejoin:round;cursor:pointer;transition:fill-opacity .3s,stroke-width .3s}
+          .lote:hover{fill-opacity:.38}
+          .lote.active{fill:#C4953A;fill-opacity:.45;stroke:#C4953A;stroke-width:3}
+          .lote.sold{fill:#A8957E;stroke:#A8957E;cursor:default}
+          .lote.sold:hover{fill-opacity:.22}
+          .serv{fill:#C6DDB4;fill-opacity:.35;stroke:#2A5625;stroke-width:.8;stroke-dasharray:3,2;cursor:default}
+          .lot-label{font-family:Georgia,serif;font-size:13px;fill:#1E4019;font-weight:700;text-anchor:middle;dominant-baseline:middle;pointer-events:none;user-select:none}
+          .lot-label.sold{fill:#8A705E}
+          .lot-area{font-family:Arial,sans-serif;font-size:9px;fill:#596552;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+        </style>
+        <!-- Franjas de servidumbre -->
+        <polygon class="serv" points="207.47,419.12 222.76,404.68 175.97,356.62 160.97,371.36" />
+        <polygon class="serv" points="290.23,504.16 305.54,489.75 222.76,404.68 207.47,419.12" />
+        <polygon class="serv" points="388.31,574.73 305.54,489.75 290.23,504.16 373.01,589.17" />
+        <polygon class="serv" points="462.74,681.30 478.04,666.86 388.31,574.73 373.01,589.17" />
+        <polygon class="serv" points="552.50,773.41 567.79,758.97 478.04,666.86 462.74,681.30" />
+        <polygon class="serv" points="567.79,758.97 552.50,773.41 739.36,965.36 754.36,950.62" />
+        <!-- Lotes principales -->
+        <polygon class="lote" data-lot-kml="5-A" points="87.35,162.17 42.86,250.08 111.36,320.47 123.84,333.32 160.97,371.36 227.45,306.04 141.78,54.64" />
+        <polygon class="lote" data-lot-kml="5-B" points="160.97,371.36 179.92,390.81 207.47,419.12 275.25,355.12 348.84,285.63 307.57,240.18 279.67,208.93 173.46,90.27 141.78,54.64 227.45,306.04" />
+        <polygon class="lote" data-lot-kml="5-C" points="348.84,285.63 275.25,355.12 207.47,419.12 217.08,429.00 254.24,467.19 290.23,504.16 428.86,373.78" />
+        <polygon class="lote" data-lot-kml="5-D" points="504.87,457.50 428.86,373.78 290.23,504.16 333.02,548.12 373.01,589.17 435.57,530.10 440.82,525.15 507.50,462.19" />
+        <polygon class="lote" data-lot-kml="5-E" points="498.19,717.71 542.06,762.69 552.50,773.41 564.78,761.81 615.05,714.35 677.60,655.29 589.73,561.40 462.74,681.30" />
+        <polygon class="lote" data-lot-kml="5-F" points="373.01,589.17 462.74,681.30 589.73,561.40 523.20,490.30 507.50,462.19 440.82,525.15 435.57,530.10" />
+        <polygon class="lote" data-lot-kml="5-G" points="602.10,824.37 607.32,829.73 662.14,886.05 703.07,928.08 739.36,965.36 757.14,947.89 727.25,800.39 677.60,655.29 615.05,714.35 564.78,761.81 552.50,773.41" />
+        <!-- Etiquetas -->
+        <text class="lot-label" x="127.9" y="249.9">5-A</text><text class="lot-area" x="127.9" y="264.9">6.487 m²</text>
+        <text class="lot-label" x="230.2" y="265.2">5-B</text><text class="lot-area" x="230.2" y="280.2">5.837 m²</text>
+        <text class="lot-label" x="288.9" y="397.9">5-C</text><text class="lot-area" x="288.9" y="412.9">5.167 m²</text>
+        <text class="lot-label" x="414.2" y="491.8">5-D</text><text class="lot-area" x="414.2" y="506.8">5.039 m²</text>
+        <text class="lot-label" x="562.8" y="696.5">5-E</text><text class="lot-area" x="562.8" y="711.5">5.041 m²</text>
+        <text class="lot-label" x="476.1" y="541.5">5-F</text><text class="lot-area" x="476.1" y="556.5">5.138 m²</text>
+        <text class="lot-label" x="655.3" y="819.1">5-G</text><text class="lot-area" x="655.3" y="834.1">6.291 m²</text>
+        <!-- Rosa de los vientos -->
+        <g transform="translate(758,960)">
+          <circle cx="0" cy="0" r="18" fill="rgba(255,255,255,.8)" stroke="#1E4019" stroke-width="1.2"/>
+          <polygon points="0,-14 5,4 0,1 -5,4" fill="#1E4019"/>
+          <text x="0" y="-17" text-anchor="middle" font-size="9" fill="#1E4019" font-weight="700" font-family="Arial">N</text>
+        </g>
+        <!-- Escala 50 m -->
+        <g transform="translate(20,996)">
+          <line x1="0" y1="0" x2="105.1" y2="0" stroke="#1E4019" stroke-width="2"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="#1E4019" stroke-width="1.5"/>
+          <line x1="105.1" y1="-4" x2="105.1" y2="4" stroke="#1E4019" stroke-width="1.5"/>
+          <text x="52.5" y="-7" text-anchor="middle" font-size="9" fill="#1E4019" font-family="Arial">50 m</text>
+        </g>
+      </svg>
     </figure>
-    <p class="plano-hint reveal d2">Toca un lote para ubicarlo en el plano maestro</p>
+    <p class="plano-hint reveal d2">Toca un lote para verlo resaltado en el plano</p>
 
     <div class="lots-grid">
       <div class="lot-card sold-lot reveal" data-lot="01"><div class="lot-num">01</div><div class="lot-meta">5.000 m² · vista NW</div><span class="lot-badge">VENDIDO</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
@@ -1584,23 +1616,52 @@ document.querySelectorAll('.diff-card').forEach(card => {
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 });
 
-// ===== PLANO INTERACTIVO: lote <-> marcador en el plano maestro =====
+// ===== PLANO INTERACTIVO: poligonos reales del SPR <-> tarjetas de lote =====
 (function(){
-  const plano = document.getElementById('plano');
-  if(!plano) return;
-  const markers = plano.querySelectorAll('.plano-marker');
+  // TODO: revisar con cliente - confirmar correspondencia entre numero de lote (landing)
+  // y nombre del SPR (5-A a 5-G). Ajustar este mapa segun confirmacion.
+  const LOT_MAP = {
+    '01':'5-A', '02':'5-B', '03':'5-C', '04':'5-D',
+    '05':'5-E', '06':'5-F', '07':'5-G'
+  };
+  const KML_MAP = Object.fromEntries(Object.entries(LOT_MAP).map(([n,k])=>[k,n]));
+
+  const svg  = document.getElementById('planoSvg');
+  const plano= document.getElementById('plano');
+  if(!svg || !plano) return;
+
+  const polys = svg.querySelectorAll('.lote[data-lot-kml]');
   const cards = plano.querySelectorAll('.lot-card[data-lot]');
-  const figure = plano.querySelector('.plano-figure');
-  function activate(lote){
-    markers.forEach(m => m.classList.toggle('active', m.dataset.lot === lote));
-    cards.forEach(c => c.classList.toggle('active', c.dataset.lot === lote));
+  const figure= plano.querySelector('.plano-figure');
+
+  // Marcar lote vendido (01) en el SVG
+  polys.forEach(p => {
+    const num = KML_MAP[p.dataset.lotKml] || KML_MAP[p.getAttribute('data-lot-kml')];
+    if(num === '01') p.classList.add('sold');
+  });
+
+  function activate(lotNum){
+    const kml = LOT_MAP[lotNum];
+    polys.forEach(p => p.classList.toggle('active', p.getAttribute('data-lot-kml') === kml));
+    cards.forEach(c => c.classList.toggle('active', c.dataset.lot === lotNum));
   }
-  markers.forEach(m => m.addEventListener('click', () => activate(m.dataset.lot)));
-  cards.forEach(c => c.addEventListener('click', () => {
-    activate(c.dataset.lot);
-    // En movil, lleva el plano a la vista para ver el marcador resaltado
-    if(figure && window.innerWidth <= 768) figure.scrollIntoView({behavior:'smooth', block:'center'});
-  }));
+
+  polys.forEach(p => {
+    if(p.classList.contains('sold')) return;
+    p.addEventListener('click', () => {
+      const num = KML_MAP[p.getAttribute('data-lot-kml')];
+      if(num) activate(num);
+    });
+  });
+
+  cards.forEach(c => {
+    c.addEventListener('click', () => {
+      activate(c.dataset.lot);
+      // En movil, desplaza el plano a la vista
+      if(figure && window.innerWidth <= 768)
+        figure.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  });
 })();
 
 // ===== SPOTLIGHT BORDER (mouse glow on cards) =====
