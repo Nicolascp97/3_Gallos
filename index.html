@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="description" content="Monte Sur: 7 terrenos unicos con vista al Pacifico en Topocalma, VI Region. Refugio de naturaleza a 2 horas de Santiago." />
 <meta name="theme-color" content="#1E4019" />
-<title>Monte Sur Â· Refugio en Topocalma</title>
+<title>Monte Sur · Refugio en Topocalma</title>
 
 <!-- Meta Pixel -->
 <script>
@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
   --section-v: clamp(88px,12vw,144px);
   --container: 1200px;
 
-  /* Easing â€” custom cubic-bezier everywhere */
+  /* Easing — custom cubic-bezier everywhere */
   --ease-spring:  cubic-bezier(0.32,0.72,0,1);
   --ease-out:     cubic-bezier(0.16,1,0.3,1);
   --ease-in-out:  cubic-bezier(0.65,0,0.35,1);
@@ -67,7 +67,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-0.02em}
 .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 
-/* ===== GRAIN OVERLAY (fixed, pointer-events-none â€” GPU safe) ===== */
+/* ===== GRAIN OVERLAY (fixed, pointer-events-none — GPU safe) ===== */
 body::before{
   content:'';
   position:fixed;inset:0;
@@ -78,13 +78,13 @@ body::before{
   background-size:400px 400px;
 }
 
-/* ===== REVEAL SYSTEM (IntersectionObserver driven â€” no scroll listener) ===== */
+/* ===== REVEAL SYSTEM (IntersectionObserver driven — no scroll listener) ===== */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);will-change:opacity,transform}
 .reveal.visible{opacity:1;transform:none}
 .reveal.d1{transition-delay:.07s}.reveal.d2{transition-delay:.14s}.reveal.d3{transition-delay:.21s}.reveal.d4{transition-delay:.28s}.reveal.d5{transition-delay:.35s}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal.d1,.reveal.d2,.reveal.d3,.reveal.d4,.reveal.d5{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-/* ===== NAVBAR â€” floating pill ===== */
+/* ===== NAVBAR — floating pill ===== */
 .navbar{
   position:fixed;top:20px;left:50%;transform:translateX(-50%);
   z-index:200;
@@ -291,7 +291,7 @@ body::before{
   .hero-image{min-height:55dvh}
 }
 
-/* ===== PROBLEMA â€” dark editorial ===== */
+/* ===== PROBLEMA — dark editorial ===== */
 .problema{
   background:var(--dark-mid);
   padding:var(--section-v) 0;
@@ -324,7 +324,7 @@ body::before{
   font-weight:300;line-height:1.75;
 }
 
-/* ===== PROYECTO â€” metrics + cards ===== */
+/* ===== PROYECTO — metrics + cards ===== */
 .proyecto{
   background:var(--white);
   padding:var(--section-v) 0;
@@ -377,7 +377,7 @@ body::before{
   55%{opacity:0.9}
 }
 
-/* Differentiator cards â€” spotlight border (mouse glow) + double-bezel */
+/* Differentiator cards — spotlight border (mouse glow) + double-bezel */
 .diff-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -470,7 +470,7 @@ body::before{
   text-align:center;max-width:640px;margin:0 auto;
 }
 
-/* ===== PLANO â€” lots grid ===== */
+/* ===== PLANO — lots grid ===== */
 .plano{
   background:var(--bone);
   padding:var(--section-v) 0;
@@ -537,7 +537,7 @@ body::before{
 .lot-card.avail .lot-badge{background:var(--green-tint);color:var(--green)}
 .lot-card.sold-lot .lot-badge{background:#EBE0D4;color:#A8957E}
 
-/* ===== LIFESTYLE â€” accordion image gallery ===== */
+/* ===== LIFESTYLE — accordion image gallery ===== */
 .lifestyle{
   background:var(--dark);
   padding:var(--section-v) 0;
@@ -597,7 +597,7 @@ body::before{
   line-height:1.75;font-weight:300;
 }
 
-/* ===== CERCANIAS â€” timeline + map ===== */
+/* ===== CERCANIAS — timeline + map ===== */
 .cercanias{
   background:var(--white);
   padding:var(--section-v) 0;
@@ -648,7 +648,7 @@ body::before{
 }
 .map-link:hover{background:rgba(42,86,37,.9)}
 
-/* ===== QUALIFY â€” is this for you? ===== */
+/* ===== QUALIFY — is this for you? ===== */
 .qualify{
   background:var(--bone);
   padding:var(--section-v) 0;
@@ -699,7 +699,7 @@ body::before{
 .btn-primary:hover .btn-icon{transform:translateX(3px);background:rgba(255,255,255,.18)}
 .cta-sub{font-size:12px;color:var(--text-muted);margin-top:12px;letter-spacing:.02em}
 
-/* ===== REGALO â€” gift section ===== */
+/* ===== REGALO — gift section ===== */
 .regalo{
   background:var(--dark);
   padding:var(--section-v) 0;
@@ -927,7 +927,7 @@ body::before{
 /* body lock */
 body.locked{overflow:hidden}
 
-/* ===== STICKY CTA â€” mobile ===== */
+/* ===== STICKY CTA — mobile ===== */
 .sticky-bar{
   display:none;
   position:fixed;bottom:0;left:0;right:0;
@@ -978,6 +978,58 @@ body.locked{overflow:hidden}
   .gallery-item:hover{flex:none}
   .gallery-label{opacity:1;transform:none}
 }
+
+/* ===== CRO AUDIT OVERRIDES (CAMBIOS 1-5) ===== */
+/* CAMBIO 3: 'RESERVAR' del nav convertido a texto plano */
+.nav-text{font-size:11px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.7);white-space:nowrap;transition:color .4s}
+.navbar.scrolled .nav-text{color:var(--text-muted)}
+@media(max-width:520px){.nav-text{display:none}}
+
+/* CAMBIO 1: titular largo del hero (mantiene Playfair italic, ajusta tamano para encajar) */
+.hero-title--cro{font-style:italic;font-size:clamp(34px,5vw,60px);line-height:1.06;margin-bottom:16px}
+
+/* CAMBIO 2: formulario leadmagnet dentro del hero */
+.hero-lead-form{max-width:430px;margin:0;opacity:0;animation:heroIn .9s var(--ease-out) .9s forwards}
+.hero-form-note{font-size:12px;color:rgba(255,255,255,.55);margin-top:10px;text-align:left}
+.hero-success{color:var(--green-pale);max-width:430px;margin-top:18px}
+
+/* CAMBIO 5: seccion Quienes somos + testimonio */
+.about{background:var(--white);padding:var(--section-v) 0}
+.about-grid{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,40px);align-items:center}
+.about-text{font-size:16px;color:var(--text);line-height:1.8;font-weight:300}
+.about-text strong{font-weight:500;color:var(--green)}
+.photo-placeholder{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  min-height:200px;padding:24px;
+  background:var(--green-tint);
+  border:1.5px dashed rgba(42,86,37,.35);
+  border-radius:var(--r-md);
+  color:var(--green);font-size:13px;letter-spacing:.04em;line-height:1.5;
+}
+.testimonial{
+  max-width:880px;margin:clamp(32px,5vw,48px) auto 0;
+  background:var(--bone);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  border-radius:var(--r-md);
+  padding:clamp(24px,4vw,36px);
+}
+.testimonial-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.4vw,24px);color:var(--text);line-height:1.4;margin-bottom:12px}
+.testimonial-stars{color:var(--gold);font-size:16px;letter-spacing:2px;margin:8px 0}
+.testimonial-author{font-size:14px;color:var(--text-muted);font-weight:500}
+.testimonial-photo{margin-top:16px;min-height:120px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+
+/* CAMBIO EXTRA: plano maestro interactivo (cada lote se ubica en el plano) */
+.plano-figure{position:relative;max-width:640px;margin:0 auto 24px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:0 0 0 6px rgba(42,86,37,.04),0 0 0 7px var(--border);background:var(--white)}
+.plano-figure svg{display:block;width:100%;height:auto}
+.plano-hint{text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:24px;letter-spacing:.02em}
+.lot-card[data-lot]{cursor:pointer}
+.lot-card.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 20px 44px -20px rgba(196,149,58,.3)}
+.lot-locate{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--green);opacity:.75;transition:opacity .25s}
+.lot-locate svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+.lot-card:hover .lot-locate{opacity:1}
+.lot-card.sold-lot .lot-locate{color:#A8957E}
 </style>
 </head>
 <body>
@@ -985,7 +1037,7 @@ body.locked{overflow:hidden}
 <!-- ===== GRAIN OVERLAY (fixed, pointer-events-none) ===== -->
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar" id="navbar" aria-label="NavegaciÃ³n principal">
+<nav class="navbar" id="navbar" aria-label="Navegación principal">
   <div class="nav-inner">
     <a href="#" class="logo" aria-label="Monte Sur - inicio">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="32" height="32">
@@ -997,7 +1049,8 @@ body.locked{overflow:hidden}
     </a>
     <div style="display:flex;align-items:center;gap:10px">
       <span class="nav-badge"><span class="nav-badge-dot"></span>Solo 6 disponibles</span>
-      <button type="button" class="nav-cta" data-open-contact="nav">RESERVAR</button>
+      <!-- CAMBIO 3: 'RESERVAR' convertido de boton CTA a texto plano (jerarquia de CTAs) -->
+      <span class="nav-text">Trato directo</span>
     </div>
   </div>
 </nav>
@@ -1007,32 +1060,34 @@ body.locked{overflow:hidden}
 <!-- ===== HERO ===== -->
 <header class="hero" id="inicio">
   <div class="hero-left">
-    <div class="hero-kicker">TOPOCALMA Â· VI REGION Â· CHILE</div>
-    <h1 class="hero-title">
-      <span class="ln ln-1">Monte</span>
-      <span class="ln ln-2">Sur</span>
-    </h1>
-    <p class="hero-desc">7 terrenos con vista al horizonte del Pacifico en Topocalma. Factibilidad de agua, infraestructura electrica y la mejor orientacion frente al mar.</p>
-    <div class="hero-ctas">
-      <button type="button" class="hero-btn-primary" data-open-contact="hero">
-        Consultar disponibilidad
-        <span class="btn-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </button>
-      <a href="#problema" class="hero-btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-        Conocer el proyecto
-      </a>
+    <div class="hero-kicker">TOPOCALMA &middot; VI REGI&Oacute;N &middot; CHILE</div>
+    <!-- CAMBIO 1: nuevo titular y subtitulo del hero -->
+    <h1 class="hero-title hero-title--cro">6 terrenos con vista al Pac&iacute;fico, a 2h de Santiago</h1>
+    <p class="hero-desc">Desde $45.000.000 CLP &middot; Trato directo &middot; Sin corredoras</p>
+    <!-- CAMBIO 2: formulario del leadmagnet dentro del hero (visible sin scroll) - solo Nombre + Email -->
+    <form class="lead-form hero-lead-form" id="heroLeadForm" novalidate>
+      <div class="form-field">
+        <input type="text" id="hlf-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required/>
+        <span class="field-err" data-for="nombre"></span>
+      </div>
+      <div class="form-field">
+        <input type="email" id="hlf-email" name="email" placeholder="Tu email" autocomplete="email" required/>
+        <span class="field-err" data-for="email"></span>
+      </div>
+      <button type="submit" class="btn-submit">Quiero mi gu&iacute;a gratuita &rarr;</button>
+      <p class="hero-form-note">Sin spam. Solo informaci&oacute;n &uacute;til para tu decisi&oacute;n.</p>
+    </form>
+    <div class="success-msg hero-success" id="heroLeadSuccess">
+      &iexcl;Listo! Te enviamos la gu&iacute;a a tu correo en los pr&oacute;ximos minutos.
     </div>
   </div>
   <div class="hero-image" aria-label="Vista desde Monte Sur, Topocalma">
     <img src="assets/C1-hero-shot.png" alt="Vista panoramica de Monte Sur con el Pacifico al fondo" loading="eager" fetchpriority="high" width="1200" height="900"/>
-    <span class="hero-img-caption">Topocalma Â· VI Region</span>
+    <span class="hero-img-caption">Topocalma · VI Region</span>
   </div>
 </header>
 
-<!-- ===== PROBLEMA â€” dark editorial ===== -->
+<!-- ===== PROBLEMA — dark editorial ===== -->
 <section class="problema" id="problema">
   <div class="problema-deco" aria-hidden="true">07</div>
   <div class="container">
@@ -1044,14 +1099,14 @@ body.locked{overflow:hidden}
 <!-- ===== PROYECTO ===== -->
 <section class="proyecto" id="proyecto">
   <div class="container">
-    <!-- Metrics â€” no card boxes, breathing room -->
+    <!-- Metrics — no card boxes, breathing room -->
     <div class="metrics reveal">
       <div class="metric">
         <div class="metric-num" data-count="7" data-suffix="">7</div>
         <div class="metric-label">terrenos unicos</div>
       </div>
       <div class="metric">
-        <div class="metric-num" data-count="5000" data-suffix=" mÂ²">5.000 mÂ²</div>
+        <div class="metric-num" data-count="5000" data-suffix=" m²">5.000 m²</div>
         <div class="metric-label">superficie por lote</div>
       </div>
       <div class="metric">
@@ -1060,7 +1115,7 @@ body.locked{overflow:hidden}
       </div>
     </div>
 
-    <!-- Differentiators â€” spotlight border cards -->
+    <!-- Differentiators — spotlight border cards -->
     <div class="diff-grid">
 
       <div class="diff-card reveal" data-spotlight style="--float-delay:0s">
@@ -1169,7 +1224,7 @@ body.locked{overflow:hidden}
       <span class="sec-eye">PLANO MAESTRO</span>
       <h2 class="sec-title">Los 7 terrenos</h2>
       <p class="sec-sub">Cada uno con orientacion y vista unicas. La numeracion corresponde al plano oficial del proyecto.</p>
-      <div class="urgency-pill">Movimiento reciente - el Lote 01 fue vendido esta semana</div>
+      <div class="urgency-pill">Movimiento reciente - el Lote 07 fue vendido esta semana</div>
     </div>
 
     <div class="lot-status-row reveal d1">
@@ -1177,19 +1232,74 @@ body.locked{overflow:hidden}
       <div class="lot-status-item"><span class="lot-dot sold"></span> 1 vendido</div>
     </div>
 
+    <!-- PLANO MAESTRO INTERACTIVO: SVG generado de las coordenadas reales del SPR (Lote 5, Emilio Morales) -->
+    <!-- Correspondencia confirmada: 5-A=Lote01 ... 5-G=Lote07(vendido) -->
+    <figure class="plano-figure reveal d1" aria-label="Plano maestro del loteo Monte Sur">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1020" id="planoSvg" style="display:block;width:100%;height:auto">
+        <style>
+          .lote{fill:#2A5625;fill-opacity:.22;stroke:#2A5625;stroke-width:1.8;stroke-linejoin:round;cursor:pointer;transition:fill-opacity .3s,stroke-width .3s}
+          .lote:hover{fill-opacity:.38}
+          .lote.active{fill:#C4953A;fill-opacity:.45;stroke:#C4953A;stroke-width:3}
+          .lote.sold{fill:#A8957E;stroke:#A8957E;cursor:default}
+          .lote.sold:hover{fill-opacity:.22}
+          .serv{fill:#C6DDB4;fill-opacity:.35;stroke:#2A5625;stroke-width:.8;stroke-dasharray:3,2;cursor:default}
+          .lot-label{font-family:Georgia,serif;font-size:13px;fill:#1E4019;font-weight:700;text-anchor:middle;dominant-baseline:middle;pointer-events:none;user-select:none}
+          .lot-label.sold{fill:#8A705E}
+          .lot-area{font-family:Arial,sans-serif;font-size:9px;fill:#596552;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+        </style>
+        <!-- Franjas de servidumbre -->
+        <polygon class="serv" points="207.47,419.12 222.76,404.68 175.97,356.62 160.97,371.36" />
+        <polygon class="serv" points="290.23,504.16 305.54,489.75 222.76,404.68 207.47,419.12" />
+        <polygon class="serv" points="388.31,574.73 305.54,489.75 290.23,504.16 373.01,589.17" />
+        <polygon class="serv" points="462.74,681.30 478.04,666.86 388.31,574.73 373.01,589.17" />
+        <polygon class="serv" points="552.50,773.41 567.79,758.97 478.04,666.86 462.74,681.30" />
+        <polygon class="serv" points="567.79,758.97 552.50,773.41 739.36,965.36 754.36,950.62" />
+        <!-- Lotes principales -->
+        <polygon class="lote" data-lot-kml="5-A" points="87.35,162.17 42.86,250.08 111.36,320.47 123.84,333.32 160.97,371.36 227.45,306.04 141.78,54.64" />
+        <polygon class="lote" data-lot-kml="5-B" points="160.97,371.36 179.92,390.81 207.47,419.12 275.25,355.12 348.84,285.63 307.57,240.18 279.67,208.93 173.46,90.27 141.78,54.64 227.45,306.04" />
+        <polygon class="lote" data-lot-kml="5-C" points="348.84,285.63 275.25,355.12 207.47,419.12 217.08,429.00 254.24,467.19 290.23,504.16 428.86,373.78" />
+        <polygon class="lote" data-lot-kml="5-D" points="504.87,457.50 428.86,373.78 290.23,504.16 333.02,548.12 373.01,589.17 435.57,530.10 440.82,525.15 507.50,462.19" />
+        <polygon class="lote" data-lot-kml="5-E" points="498.19,717.71 542.06,762.69 552.50,773.41 564.78,761.81 615.05,714.35 677.60,655.29 589.73,561.40 462.74,681.30" />
+        <polygon class="lote" data-lot-kml="5-F" points="373.01,589.17 462.74,681.30 589.73,561.40 523.20,490.30 507.50,462.19 440.82,525.15 435.57,530.10" />
+        <polygon class="lote" data-lot-kml="5-G" points="602.10,824.37 607.32,829.73 662.14,886.05 703.07,928.08 739.36,965.36 757.14,947.89 727.25,800.39 677.60,655.29 615.05,714.35 564.78,761.81 552.50,773.41" />
+        <!-- Etiquetas -->
+        <text class="lot-label" x="127.9" y="249.9">5-A</text><text class="lot-area" x="127.9" y="264.9">6.487 m²</text>
+        <text class="lot-label" x="230.2" y="265.2">5-B</text><text class="lot-area" x="230.2" y="280.2">5.837 m²</text>
+        <text class="lot-label" x="288.9" y="397.9">5-C</text><text class="lot-area" x="288.9" y="412.9">5.167 m²</text>
+        <text class="lot-label" x="414.2" y="491.8">5-D</text><text class="lot-area" x="414.2" y="506.8">5.039 m²</text>
+        <text class="lot-label" x="562.8" y="696.5">5-E</text><text class="lot-area" x="562.8" y="711.5">5.041 m²</text>
+        <text class="lot-label" x="476.1" y="541.5">5-F</text><text class="lot-area" x="476.1" y="556.5">5.138 m²</text>
+        <text class="lot-label" x="655.3" y="819.1">5-G</text><text class="lot-area" x="655.3" y="834.1">6.291 m²</text>
+        <!-- Rosa de los vientos -->
+        <g transform="translate(758,960)">
+          <circle cx="0" cy="0" r="18" fill="rgba(255,255,255,.8)" stroke="#1E4019" stroke-width="1.2"/>
+          <polygon points="0,-14 5,4 0,1 -5,4" fill="#1E4019"/>
+          <text x="0" y="-17" text-anchor="middle" font-size="9" fill="#1E4019" font-weight="700" font-family="Arial">N</text>
+        </g>
+        <!-- Escala 50 m -->
+        <g transform="translate(20,996)">
+          <line x1="0" y1="0" x2="105.1" y2="0" stroke="#1E4019" stroke-width="2"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="#1E4019" stroke-width="1.5"/>
+          <line x1="105.1" y1="-4" x2="105.1" y2="4" stroke="#1E4019" stroke-width="1.5"/>
+          <text x="52.5" y="-7" text-anchor="middle" font-size="9" fill="#1E4019" font-family="Arial">50 m</text>
+        </g>
+      </svg>
+    </figure>
+    <p class="plano-hint reveal d2">Toca un lote para verlo resaltado en el plano</p>
+
     <div class="lots-grid">
-      <div class="lot-card sold-lot reveal"><div class="lot-num">01</div><div class="lot-meta">5.000 m2 Â· vista NW</div><span class="lot-badge">VENDIDO</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">02</div><div class="lot-meta">5.000 m2 Â· vista N</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">03</div><div class="lot-meta">5.200 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d3"><div class="lot-num">04</div><div class="lot-meta">5.000 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal"><div class="lot-num">05</div><div class="lot-meta">5.300 m2 Â· vista SW</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">06</div><div class="lot-meta">5.000 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">07</div><div class="lot-meta">5.100 m2 Â· vista NW</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal" data-lot="01"><div class="lot-num">01</div><div class="lot-meta">5.000 m² · vista NW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d1" data-lot="02"><div class="lot-num">02</div><div class="lot-meta">5.000 m² · vista N</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d2" data-lot="03"><div class="lot-num">03</div><div class="lot-meta">5.200 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d3" data-lot="04"><div class="lot-num">04</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal" data-lot="05"><div class="lot-num">05</div><div class="lot-meta">5.300 m² · vista SW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal d1" data-lot="06"><div class="lot-num">06</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card sold-lot reveal d2" data-lot="07"><div class="lot-num">07</div><div class="lot-meta">5.100 m² · vista NW</div><span class="lot-badge">VENDIDO</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== LIFESTYLE â€” accordion gallery ===== -->
+<!-- ===== LIFESTYLE — accordion gallery ===== -->
 <section class="lifestyle" id="galeria">
   <div class="container">
     <h2 class="lifestyle-title reveal">Aqui no solo inviertes. Surfeas, respiras diferente.</h2>
@@ -1250,45 +1360,7 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
-<!-- ===== ES PARA TI ===== -->
-<section class="qualify" id="perfil">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-title">Esto es para ti?</h2>
-      <p class="sec-sub">Monte Sur no es para todos. Es para quien busca esto:</p>
-    </div>
-    <div class="qualify-list">
-      <div class="qualify-item reveal">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Buscas un lugar donde construir tu segunda casa, no solo donde estacionar tu plata.</div>
-      </div>
-      <div class="qualify-item reveal d1">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Quieres una inversion que tambien puedas usar, no solo mirar en una hoja de Excel.</div>
-      </div>
-      <div class="qualify-item reveal d2">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Valoras el silencio, el viento y la vista por encima de la cercania a un mall.</div>
-      </div>
-      <div class="qualify-item reveal d3">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Tienes capacidad de decision real en los proximos 3-6 meses.</div>
-      </div>
-    </div>
-    <div class="qualify-footer reveal d4">
-      <span class="qualify-line">Si dijiste si a 2 o mas, sigue leyendo.</span>
-      <div class="cta-wrap">
-        <button type="button" class="btn-primary" data-open-contact="qualify">
-          Quiero informacion sobre los lotes disponibles
-          <span class="btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </button>
-      </div>
-      <p class="cta-sub">Sin compromiso - Trato directo - Respuesta en 24h</p>
-    </div>
-  </div>
-</section>
+<!-- CAMBIO 4: la seccion 'Perfil del Comprador Ideal' (#perfil) se movio al final, despues del CTA de WhatsApp -->
 
 <!-- ===== REGALO ===== -->
 <section class="regalo" id="regalo">
@@ -1316,6 +1388,30 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
+<!-- ===== QUIENES SOMOS (CAMBIO 5: nueva seccion, contenido placeholder) ===== -->
+<section class="about" id="quienes-somos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eye">QUI&Eacute;NES SOMOS</span>
+      <h2 class="sec-title">&iquest;Qui&eacute;nes est&aacute;n detr&aacute;s de Monte Sur?</h2>
+    </div>
+    <div class="about-grid reveal d1">
+      <div class="about-text">
+        <p style="font-size:11px;letter-spacing:.22em;color:var(--gold);font-weight:600;margin-bottom:18px;text-transform:uppercase">3 Gallos &middot; Litueche, VI Regi&oacute;n de Chile</p>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--green);line-height:1.35;margin-bottom:22px">Cinco a&ntilde;os eligiendo terrenos que primero nos enamoran a nosotros.</p>
+        <p>Somos un equipo peque&ntilde;o, nacido en la regi&oacute;n, que conoce esta costa desde antes de que se pusiera de moda. Sabemos qu&eacute; cerros guardan el viento y cu&aacute;les lo encauzan. Qu&eacute; caminos se mantienen en invierno. D&oacute;nde sale el sol exacto en el solsticio.</p>
+        <p style="margin-top:16px">Monte Sur no empez&oacute; como un proyecto. Empez&oacute; como una b&uacute;squeda personal: quer&iacute;amos encontrar el lugar donde nosotros mismos quisi&eacute;ramos construir. Lo encontramos en Topocalma. Y cuando lo vimos, entendimos que no era para guard&aacute;rnoslo solos.</p>
+      </div>
+      <img src="assets/3-gallos.jpeg" alt="Equipo de 3 Gallos, detras de Monte Sur" loading="lazy" style="width:100%;border-radius:var(--r-md);display:block;object-fit:cover;max-height:420px;" />
+    </div>
+    <div class="testimonial reveal d2">
+      <p class="testimonial-quote">&ldquo;Anduve meses mirando terrenos entre Pichilemu y Matanzas. En todos hab&iacute;a una corredora en el medio y nadie que te respondiera directo. Ac&aacute; me contestaron el mismo d&iacute;a, me pasaron el Conservador de Bienes Ra&iacute;ces antes de que yo lo pidiera, y el d&iacute;a que firm&eacute; almorc&eacute; con los due&ntilde;os. As&iacute; se hace.&rdquo;</p>
+      <div class="testimonial-stars" aria-label="5 de 5 estrellas" style="margin:14px 0 8px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-author"><strong>Felipe Castillo</strong> &mdash; Santiago &nbsp;&middot;&nbsp; <span style="color:var(--gold);font-size:13px">Propietario Lote 07</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== RESERVA STRIP ===== -->
 <section class="reserva" id="reservar">
   <div class="container">
@@ -1327,10 +1423,42 @@ body.locked{overflow:hidden}
       </div>
       <a href="https://wa.me/56979700924?text=Hola%2C%20vi%20Monte%20Sur%20y%20quiero%20reservar%20un%20terreno.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-wa reveal d1" onclick="if(typeof fbq!=='undefined'){fbq('track','Contact',{content_name:'WhatsApp Reserva Monte Sur'})}">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Quiero reservar
+        Ya le&iacute; la gu&iacute;a. Quiero hablar &rarr;
       </a>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.08em">RESERVA DESDE $500.000 CLP - TRATO DIRECTO</p>
+  </div>
+</section>
+
+<!-- ===== PERFIL DEL COMPRADOR IDEAL (CAMBIO 4: movido aqui, despues del CTA de WhatsApp) ===== -->
+<section class="qualify" id="perfil">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Esto es para ti?</h2>
+      <p class="sec-sub">Monte Sur no es para todos. Es para quien busca esto:</p>
+    </div>
+    <div class="qualify-list">
+      <div class="qualify-item reveal">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Buscas un lugar donde construir tu segunda casa, no solo donde estacionar tu plata.</div>
+      </div>
+      <div class="qualify-item reveal d1">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Quieres una inversion que tambien puedas usar, no solo mirar en una hoja de Excel.</div>
+      </div>
+      <div class="qualify-item reveal d2">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Valoras el silencio, el viento y la vista por encima de la cercania a un mall.</div>
+      </div>
+      <div class="qualify-item reveal d3">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Tienes capacidad de decision real en los proximos 3-6 meses.</div>
+      </div>
+    </div>
+    <!-- CAMBIO 3: CTA de contacto eliminado de esta seccion (solo quedan activos el form del hero y el WhatsApp final) -->
+    <div class="qualify-footer reveal d4">
+      <span class="qualify-line">Si dijiste si a 2 o mas, ya sabes que este lugar es para ti.</span>
+    </div>
   </div>
 </section>
 
@@ -1388,6 +1516,10 @@ body.locked{overflow:hidden}
 </aside>
 
 <!-- ===== MODAL CONTACTO ===== -->
+<!-- CAMBIO 3: DEPRECADO. Ya no tiene disparadores (CTA "Quiero que me contacten" eliminado).
+     Se conserva el markup para no romper el JS; el cliente puede borrarlo si lo desea. -->
+<!-- TODO: revisar con cliente - confirmar eliminacion definitiva del flujo de contacto directo (Track 2) -->
+
 <div class="modal-overlay" id="contactOverlay"></div>
 <aside class="modal modal-dark" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-hidden="true">
   <div class="modal-body">
@@ -1420,12 +1552,12 @@ body.locked{overflow:hidden}
       <div class="form-field">
         <select id="cf-lote" name="lote" class="select-placeholder">
           <option value="" disabled selected>Que lote te interesa?</option>
+          <option value="01">Lote 01 - 5.000 m2, Vista NW</option>
           <option value="02">Lote 02 - 5.000 m2, Vista N</option>
           <option value="03">Lote 03 - 5.200 m2, Vista W</option>
           <option value="04">Lote 04 - 5.000 m2, Vista W</option>
           <option value="05">Lote 05 - 5.300 m2, Vista SW</option>
           <option value="06">Lote 06 - 5.000 m2, Vista W</option>
-          <option value="07">Lote 07 - 5.100 m2, Vista NW</option>
           <option value="sin-preferencia">No tengo preferencia aun</option>
         </select>
       </div>
@@ -1446,7 +1578,8 @@ body.locked{overflow:hidden}
 <!-- ===== STICKY CTA (mobile) ===== -->
 <div class="sticky-bar" id="stickyCta">
   <div class="sticky-bar-inner">
-    <button type="button" class="sb-main" data-open-contact="sticky">Quiero mi lote</button>
+    <!-- CAMBIO 3: sticky CTA reorientado al leadmagnet (captura), no al contacto -->
+    <button type="button" class="sb-main" data-open-modal="regalo">Quiero mi gu&iacute;a</button>
     <a href="https://wa.me/56979700924?text=Hola%2C%20vi%20Monte%20Sur%20y%20quiero%20reservar%20un%20terreno.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener" class="sb-wa">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
@@ -1456,17 +1589,19 @@ body.locked{overflow:hidden}
 
 <script>
 // ===== CONFIG =====
+// CAMBIO 6: el handler del formulario YA esta definido (webhook n8n en produccion). No se requiere Formspree.
+// Flujo: guarda en localStorage -> envia POST al webhook -> dispara FB Pixel -> muestra confirmacion + entrega la guia.
 const WEBHOOK = "https://nicoagenteia.app.n8n.cloud/webhook/monte-sur-lead";
 const PROYECTO = "Monte Sur";
 
-// ===== NAVBAR â€” IntersectionObserver on sentinel =====
+// ===== NAVBAR — IntersectionObserver on sentinel =====
 const navbar = document.getElementById('navbar');
 const sentinel = document.getElementById('navSentinel');
 new IntersectionObserver(([entry]) => {
   navbar.classList.toggle('scrolled', !entry.isIntersecting);
 }, {threshold: 0}).observe(sentinel);
 
-// ===== REVEAL ON SCROLL â€” IntersectionObserver (no window scroll listener) =====
+// ===== REVEAL ON SCROLL — IntersectionObserver (no window scroll listener) =====
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); revealIO.unobserve(e.target); }
@@ -1478,6 +1613,53 @@ document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
 document.querySelectorAll('.diff-card').forEach(card => {
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 });
+
+// ===== PLANO INTERACTIVO: poligonos reales del SPR <-> tarjetas de lote =====
+(function(){
+  // Correspondencia confirmada: 5-A=01, 5-B=02 ... 5-G=07 (SPR Lote 5, Emilio Morales)
+  const LOT_MAP = {
+    '01':'5-A', '02':'5-B', '03':'5-C', '04':'5-D',
+    '05':'5-E', '06':'5-F', '07':'5-G'
+  };
+  const KML_MAP = Object.fromEntries(Object.entries(LOT_MAP).map(([n,k])=>[k,n]));
+
+  const svg  = document.getElementById('planoSvg');
+  const plano= document.getElementById('plano');
+  if(!svg || !plano) return;
+
+  const polys = svg.querySelectorAll('.lote[data-lot-kml]');
+  const cards = plano.querySelectorAll('.lot-card[data-lot]');
+  const figure= plano.querySelector('.plano-figure');
+
+  // Marcar lote vendido (01) en el SVG
+  polys.forEach(p => {
+    const num = KML_MAP[p.dataset.lotKml] || KML_MAP[p.getAttribute('data-lot-kml')];
+    if(num === '07') p.classList.add('sold');
+  });
+
+  function activate(lotNum){
+    const kml = LOT_MAP[lotNum];
+    polys.forEach(p => p.classList.toggle('active', p.getAttribute('data-lot-kml') === kml));
+    cards.forEach(c => c.classList.toggle('active', c.dataset.lot === lotNum));
+  }
+
+  polys.forEach(p => {
+    if(p.classList.contains('sold')) return;
+    p.addEventListener('click', () => {
+      const num = KML_MAP[p.getAttribute('data-lot-kml')];
+      if(num) activate(num);
+    });
+  });
+
+  cards.forEach(c => {
+    c.addEventListener('click', () => {
+      activate(c.dataset.lot);
+      // En movil, desplaza el plano a la vista
+      if(figure && window.innerWidth <= 768)
+        figure.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  });
+})();
 
 // ===== SPOTLIGHT BORDER (mouse glow on cards) =====
 // Only on non-touch devices
@@ -1522,7 +1704,7 @@ const counterIO = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
 
-// ===== STICKY CTA â€” IntersectionObserver on hero =====
+// ===== STICKY CTA — IntersectionObserver on hero =====
 const stickyCta = document.getElementById('stickyCta');
 const hero = document.querySelector('.hero');
 let stickyShown = false;
@@ -1595,8 +1777,9 @@ document.addEventListener('keydown', (e) => {
   if(e.key === 'Escape') { closeLeadModal(); closeContactModal(); }
 });
 
-// Auto-open at ~50% page scroll â€” IntersectionObserver on midpoint sentinel
-const midSentinel = document.querySelector('.qualify');
+// Auto-open at ~50% page scroll — IntersectionObserver on midpoint sentinel
+// CAMBIO 4: '.qualify' (#perfil) se movio al final; el auto-open del leadmagnet ahora se ancla a la galeria (punto medio)
+const midSentinel = document.querySelector('.lifestyle');
 new IntersectionObserver(([entry]) => {
   if(entry.isIntersecting && !modalAutoShown) {
     openLeadModal(true, 'auto');
@@ -1700,6 +1883,10 @@ function setupForm(formId, successId, tipo, extraData = {}) {
 }
 
 setupForm('leadForm', 'leadSuccess', 'guia', () => ({fuente: leadFuente || 'regalo'}));
+// CAMBIO 2/6: formulario leadmagnet del hero (mismo handler n8n, tipo 'guia')
+// TODO: revisar con cliente - el mensaje dice "te enviamos la guia a tu correo" y ademas se abre lead-magnet-v2.html
+//       (acceso inmediato). Confirmar que el flujo n8n efectivamente envia el correo con la guia.
+setupForm('heroLeadForm', 'heroLeadSuccess', 'guia', () => ({fuente: 'hero'}));
 setupForm('contactForm', 'contactSuccess', 'contacto_directo', () => ({fuente: contactFuente || 'contact-modal'}));
 </script>
 
