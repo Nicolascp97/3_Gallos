@@ -978,6 +978,47 @@ body.locked{overflow:hidden}
   .gallery-item:hover{flex:none}
   .gallery-label{opacity:1;transform:none}
 }
+
+/* ===== CRO AUDIT OVERRIDES (CAMBIOS 1-5) ===== */
+/* CAMBIO 3: 'RESERVAR' del nav convertido a texto plano */
+.nav-text{font-size:11px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.7);white-space:nowrap;transition:color .4s}
+.navbar.scrolled .nav-text{color:var(--text-muted)}
+@media(max-width:520px){.nav-text{display:none}}
+
+/* CAMBIO 1: titular largo del hero (mantiene Playfair italic, ajusta tamano para encajar) */
+.hero-title--cro{font-style:italic;font-size:clamp(34px,5vw,60px);line-height:1.06;margin-bottom:16px}
+
+/* CAMBIO 2: formulario leadmagnet dentro del hero */
+.hero-lead-form{max-width:430px;margin:0;opacity:0;animation:heroIn .9s var(--ease-out) .9s forwards}
+.hero-form-note{font-size:12px;color:rgba(255,255,255,.55);margin-top:10px;text-align:left}
+.hero-success{color:var(--green-pale);max-width:430px;margin-top:18px}
+
+/* CAMBIO 5: seccion Quienes somos + testimonio */
+.about{background:var(--white);padding:var(--section-v) 0}
+.about-grid{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,40px);align-items:center}
+.about-text{font-size:16px;color:var(--text);line-height:1.8;font-weight:300}
+.about-text strong{font-weight:500;color:var(--green)}
+.photo-placeholder{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  min-height:200px;padding:24px;
+  background:var(--green-tint);
+  border:1.5px dashed rgba(42,86,37,.35);
+  border-radius:var(--r-md);
+  color:var(--green);font-size:13px;letter-spacing:.04em;line-height:1.5;
+}
+.testimonial{
+  max-width:880px;margin:clamp(32px,5vw,48px) auto 0;
+  background:var(--bone);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  border-radius:var(--r-md);
+  padding:clamp(24px,4vw,36px);
+}
+.testimonial-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.4vw,24px);color:var(--text);line-height:1.4;margin-bottom:12px}
+.testimonial-stars{color:var(--gold);font-size:16px;letter-spacing:2px;margin:8px 0}
+.testimonial-author{font-size:14px;color:var(--text-muted);font-weight:500}
+.testimonial-photo{margin-top:16px;min-height:120px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -997,7 +1038,8 @@ body.locked{overflow:hidden}
     </a>
     <div style="display:flex;align-items:center;gap:10px">
       <span class="nav-badge"><span class="nav-badge-dot"></span>Solo 6 disponibles</span>
-      <button type="button" class="nav-cta" data-open-contact="nav">RESERVAR</button>
+      <!-- CAMBIO 3: 'RESERVAR' convertido de boton CTA a texto plano (jerarquia de CTAs) -->
+      <span class="nav-text">Trato directo</span>
     </div>
   </div>
 </nav>
@@ -1007,23 +1049,25 @@ body.locked{overflow:hidden}
 <!-- ===== HERO ===== -->
 <header class="hero" id="inicio">
   <div class="hero-left">
-    <div class="hero-kicker">TOPOCALMA Â· VI REGION Â· CHILE</div>
-    <h1 class="hero-title">
-      <span class="ln ln-1">Monte</span>
-      <span class="ln ln-2">Sur</span>
-    </h1>
-    <p class="hero-desc">7 terrenos con vista al horizonte del Pacifico en Topocalma. Factibilidad de agua, infraestructura electrica y la mejor orientacion frente al mar.</p>
-    <div class="hero-ctas">
-      <button type="button" class="hero-btn-primary" data-open-contact="hero">
-        Consultar disponibilidad
-        <span class="btn-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </button>
-      <a href="#problema" class="hero-btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-        Conocer el proyecto
-      </a>
+    <div class="hero-kicker">TOPOCALMA &middot; VI REGI&Oacute;N &middot; CHILE</div>
+    <!-- CAMBIO 1: nuevo titular y subtitulo del hero -->
+    <h1 class="hero-title hero-title--cro">6 terrenos con vista al Pac&iacute;fico, a 2h de Santiago</h1>
+    <p class="hero-desc">Desde $45.000.000 CLP &middot; Trato directo &middot; Sin corredoras</p>
+    <!-- CAMBIO 2: formulario del leadmagnet dentro del hero (visible sin scroll) - solo Nombre + Email -->
+    <form class="lead-form hero-lead-form" id="heroLeadForm" novalidate>
+      <div class="form-field">
+        <input type="text" id="hlf-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required/>
+        <span class="field-err" data-for="nombre"></span>
+      </div>
+      <div class="form-field">
+        <input type="email" id="hlf-email" name="email" placeholder="Tu email" autocomplete="email" required/>
+        <span class="field-err" data-for="email"></span>
+      </div>
+      <button type="submit" class="btn-submit">Quiero mi gu&iacute;a gratuita &rarr;</button>
+      <p class="hero-form-note">Sin spam. Solo informaci&oacute;n &uacute;til para tu decisi&oacute;n.</p>
+    </form>
+    <div class="success-msg hero-success" id="heroLeadSuccess">
+      &iexcl;Listo! Te enviamos la gu&iacute;a a tu correo en los pr&oacute;ximos minutos.
     </div>
   </div>
   <div class="hero-image" aria-label="Vista desde Monte Sur, Topocalma">
@@ -1250,45 +1294,7 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
-<!-- ===== ES PARA TI ===== -->
-<section class="qualify" id="perfil">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-title">Esto es para ti?</h2>
-      <p class="sec-sub">Monte Sur no es para todos. Es para quien busca esto:</p>
-    </div>
-    <div class="qualify-list">
-      <div class="qualify-item reveal">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Buscas un lugar donde construir tu segunda casa, no solo donde estacionar tu plata.</div>
-      </div>
-      <div class="qualify-item reveal d1">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Quieres una inversion que tambien puedas usar, no solo mirar en una hoja de Excel.</div>
-      </div>
-      <div class="qualify-item reveal d2">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Valoras el silencio, el viento y la vista por encima de la cercania a un mall.</div>
-      </div>
-      <div class="qualify-item reveal d3">
-        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="qualify-text">Tienes capacidad de decision real en los proximos 3-6 meses.</div>
-      </div>
-    </div>
-    <div class="qualify-footer reveal d4">
-      <span class="qualify-line">Si dijiste si a 2 o mas, sigue leyendo.</span>
-      <div class="cta-wrap">
-        <button type="button" class="btn-primary" data-open-contact="qualify">
-          Quiero informacion sobre los lotes disponibles
-          <span class="btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </button>
-      </div>
-      <p class="cta-sub">Sin compromiso - Trato directo - Respuesta en 24h</p>
-    </div>
-  </div>
-</section>
+<!-- CAMBIO 4: la seccion 'Perfil del Comprador Ideal' (#perfil) se movio al final, despues del CTA de WhatsApp -->
 
 <!-- ===== REGALO ===== -->
 <section class="regalo" id="regalo">
@@ -1316,6 +1322,32 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
+<!-- ===== QUIENES SOMOS (CAMBIO 5: nueva seccion, contenido placeholder) ===== -->
+<section class="about" id="quienes-somos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eye">QUI&Eacute;NES SOMOS</span>
+      <h2 class="sec-title">&iquest;Qui&eacute;nes est&aacute;n detr&aacute;s de Monte Sur?</h2>
+    </div>
+    <div class="about-grid reveal d1">
+      <p class="about-text">
+        <!-- TODO: revisar con cliente - reemplazar con nombre/empresa, ciudad y anos reales -->
+        <strong>[Nombre o empresa] &mdash; [Ciudad, Chile]</strong><br><br>
+        Llevamos [X] a&ntilde;os desarrollando proyectos inmobiliarios en la costa del Pac&iacute;fico. Monte Sur naci&oacute; porque quer&iacute;amos crear el lugar donde nosotros mismos quisi&eacute;ramos construir.
+      </p>
+      <!-- TODO: revisar con cliente - reemplazar por foto real del fundador/equipo -->
+      <div class="photo-placeholder">[FOTO PLACEHOLDER &mdash; el cliente insertar&aacute; foto real]</div>
+    </div>
+    <!-- TODO: revisar con cliente - testimonio real del comprador del Lote 01 -->
+    <div class="testimonial reveal d2">
+      <p class="testimonial-quote">&ldquo;Texto del testimonio real aqu&iacute;.&rdquo;</p>
+      <div class="testimonial-stars" aria-label="5 de 5 estrellas">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      <p class="testimonial-author">[Nombre comprador Lote 01] &mdash; Santiago</p>
+      <div class="photo-placeholder testimonial-photo">[FOTO PLACEHOLDER]</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== RESERVA STRIP ===== -->
 <section class="reserva" id="reservar">
   <div class="container">
@@ -1327,10 +1359,42 @@ body.locked{overflow:hidden}
       </div>
       <a href="https://wa.me/56979700924?text=Hola%2C%20vi%20Monte%20Sur%20y%20quiero%20reservar%20un%20terreno.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-wa reveal d1" onclick="if(typeof fbq!=='undefined'){fbq('track','Contact',{content_name:'WhatsApp Reserva Monte Sur'})}">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Quiero reservar
+        Ya le&iacute; la gu&iacute;a. Quiero hablar &rarr;
       </a>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.08em">RESERVA DESDE $500.000 CLP - TRATO DIRECTO</p>
+  </div>
+</section>
+
+<!-- ===== PERFIL DEL COMPRADOR IDEAL (CAMBIO 4: movido aqui, despues del CTA de WhatsApp) ===== -->
+<section class="qualify" id="perfil">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Esto es para ti?</h2>
+      <p class="sec-sub">Monte Sur no es para todos. Es para quien busca esto:</p>
+    </div>
+    <div class="qualify-list">
+      <div class="qualify-item reveal">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Buscas un lugar donde construir tu segunda casa, no solo donde estacionar tu plata.</div>
+      </div>
+      <div class="qualify-item reveal d1">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Quieres una inversion que tambien puedas usar, no solo mirar en una hoja de Excel.</div>
+      </div>
+      <div class="qualify-item reveal d2">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Valoras el silencio, el viento y la vista por encima de la cercania a un mall.</div>
+      </div>
+      <div class="qualify-item reveal d3">
+        <div class="qualify-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="qualify-text">Tienes capacidad de decision real en los proximos 3-6 meses.</div>
+      </div>
+    </div>
+    <!-- CAMBIO 3: CTA de contacto eliminado de esta seccion (solo quedan activos el form del hero y el WhatsApp final) -->
+    <div class="qualify-footer reveal d4">
+      <span class="qualify-line">Si dijiste si a 2 o mas, ya sabes que este lugar es para ti.</span>
+    </div>
   </div>
 </section>
 
@@ -1388,6 +1452,10 @@ body.locked{overflow:hidden}
 </aside>
 
 <!-- ===== MODAL CONTACTO ===== -->
+<!-- CAMBIO 3: DEPRECADO. Ya no tiene disparadores (CTA "Quiero que me contacten" eliminado).
+     Se conserva el markup para no romper el JS; el cliente puede borrarlo si lo desea. -->
+<!-- TODO: revisar con cliente - confirmar eliminacion definitiva del flujo de contacto directo (Track 2) -->
+
 <div class="modal-overlay" id="contactOverlay"></div>
 <aside class="modal modal-dark" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-hidden="true">
   <div class="modal-body">
@@ -1446,7 +1514,8 @@ body.locked{overflow:hidden}
 <!-- ===== STICKY CTA (mobile) ===== -->
 <div class="sticky-bar" id="stickyCta">
   <div class="sticky-bar-inner">
-    <button type="button" class="sb-main" data-open-contact="sticky">Quiero mi lote</button>
+    <!-- CAMBIO 3: sticky CTA reorientado al leadmagnet (captura), no al contacto -->
+    <button type="button" class="sb-main" data-open-modal="regalo">Quiero mi gu&iacute;a</button>
     <a href="https://wa.me/56979700924?text=Hola%2C%20vi%20Monte%20Sur%20y%20quiero%20reservar%20un%20terreno.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener" class="sb-wa">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
@@ -1456,6 +1525,8 @@ body.locked{overflow:hidden}
 
 <script>
 // ===== CONFIG =====
+// CAMBIO 6: el handler del formulario YA esta definido (webhook n8n en produccion). No se requiere Formspree.
+// Flujo: guarda en localStorage -> envia POST al webhook -> dispara FB Pixel -> muestra confirmacion + entrega la guia.
 const WEBHOOK = "https://nicoagenteia.app.n8n.cloud/webhook/monte-sur-lead";
 const PROYECTO = "Monte Sur";
 
@@ -1596,7 +1667,8 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Auto-open at ~50% page scroll â€” IntersectionObserver on midpoint sentinel
-const midSentinel = document.querySelector('.qualify');
+// CAMBIO 4: '.qualify' (#perfil) se movio al final; el auto-open del leadmagnet ahora se ancla a la galeria (punto medio)
+const midSentinel = document.querySelector('.lifestyle');
 new IntersectionObserver(([entry]) => {
   if(entry.isIntersecting && !modalAutoShown) {
     openLeadModal(true, 'auto');
@@ -1700,6 +1772,10 @@ function setupForm(formId, successId, tipo, extraData = {}) {
 }
 
 setupForm('leadForm', 'leadSuccess', 'guia', () => ({fuente: leadFuente || 'regalo'}));
+// CAMBIO 2/6: formulario leadmagnet del hero (mismo handler n8n, tipo 'guia')
+// TODO: revisar con cliente - el mensaje dice "te enviamos la guia a tu correo" y ademas se abre lead-magnet-v2.html
+//       (acceso inmediato). Confirmar que el flujo n8n efectivamente envia el correo con la guia.
+setupForm('heroLeadForm', 'heroLeadSuccess', 'guia', () => ({fuente: 'hero'}));
 setupForm('contactForm', 'contactSuccess', 'contacto_directo', () => ({fuente: contactFuente || 'contact-modal'}));
 </script>
 
