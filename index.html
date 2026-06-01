@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="description" content="Monte Sur: 7 terrenos unicos con vista al Pacifico en Topocalma, VI Region. Refugio de naturaleza a 2 horas de Santiago." />
 <meta name="theme-color" content="#1E4019" />
-<title>Monte Sur Â· Refugio en Topocalma</title>
+<title>Monte Sur · Refugio en Topocalma</title>
 
 <!-- Meta Pixel -->
 <script>
@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
   --section-v: clamp(88px,12vw,144px);
   --container: 1200px;
 
-  /* Easing â€” custom cubic-bezier everywhere */
+  /* Easing — custom cubic-bezier everywhere */
   --ease-spring:  cubic-bezier(0.32,0.72,0,1);
   --ease-out:     cubic-bezier(0.16,1,0.3,1);
   --ease-in-out:  cubic-bezier(0.65,0,0.35,1);
@@ -67,7 +67,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-0.02em}
 .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 
-/* ===== GRAIN OVERLAY (fixed, pointer-events-none â€” GPU safe) ===== */
+/* ===== GRAIN OVERLAY (fixed, pointer-events-none — GPU safe) ===== */
 body::before{
   content:'';
   position:fixed;inset:0;
@@ -78,13 +78,13 @@ body::before{
   background-size:400px 400px;
 }
 
-/* ===== REVEAL SYSTEM (IntersectionObserver driven â€” no scroll listener) ===== */
+/* ===== REVEAL SYSTEM (IntersectionObserver driven — no scroll listener) ===== */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);will-change:opacity,transform}
 .reveal.visible{opacity:1;transform:none}
 .reveal.d1{transition-delay:.07s}.reveal.d2{transition-delay:.14s}.reveal.d3{transition-delay:.21s}.reveal.d4{transition-delay:.28s}.reveal.d5{transition-delay:.35s}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal.d1,.reveal.d2,.reveal.d3,.reveal.d4,.reveal.d5{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-/* ===== NAVBAR â€” floating pill ===== */
+/* ===== NAVBAR — floating pill ===== */
 .navbar{
   position:fixed;top:20px;left:50%;transform:translateX(-50%);
   z-index:200;
@@ -291,7 +291,7 @@ body::before{
   .hero-image{min-height:55dvh}
 }
 
-/* ===== PROBLEMA â€” dark editorial ===== */
+/* ===== PROBLEMA — dark editorial ===== */
 .problema{
   background:var(--dark-mid);
   padding:var(--section-v) 0;
@@ -324,7 +324,7 @@ body::before{
   font-weight:300;line-height:1.75;
 }
 
-/* ===== PROYECTO â€” metrics + cards ===== */
+/* ===== PROYECTO — metrics + cards ===== */
 .proyecto{
   background:var(--white);
   padding:var(--section-v) 0;
@@ -377,7 +377,7 @@ body::before{
   55%{opacity:0.9}
 }
 
-/* Differentiator cards â€” spotlight border (mouse glow) + double-bezel */
+/* Differentiator cards — spotlight border (mouse glow) + double-bezel */
 .diff-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -470,7 +470,7 @@ body::before{
   text-align:center;max-width:640px;margin:0 auto;
 }
 
-/* ===== PLANO â€” lots grid ===== */
+/* ===== PLANO — lots grid ===== */
 .plano{
   background:var(--bone);
   padding:var(--section-v) 0;
@@ -537,7 +537,7 @@ body::before{
 .lot-card.avail .lot-badge{background:var(--green-tint);color:var(--green)}
 .lot-card.sold-lot .lot-badge{background:#EBE0D4;color:#A8957E}
 
-/* ===== LIFESTYLE â€” accordion image gallery ===== */
+/* ===== LIFESTYLE — accordion image gallery ===== */
 .lifestyle{
   background:var(--dark);
   padding:var(--section-v) 0;
@@ -597,7 +597,7 @@ body::before{
   line-height:1.75;font-weight:300;
 }
 
-/* ===== CERCANIAS â€” timeline + map ===== */
+/* ===== CERCANIAS — timeline + map ===== */
 .cercanias{
   background:var(--white);
   padding:var(--section-v) 0;
@@ -648,7 +648,7 @@ body::before{
 }
 .map-link:hover{background:rgba(42,86,37,.9)}
 
-/* ===== QUALIFY â€” is this for you? ===== */
+/* ===== QUALIFY — is this for you? ===== */
 .qualify{
   background:var(--bone);
   padding:var(--section-v) 0;
@@ -699,7 +699,7 @@ body::before{
 .btn-primary:hover .btn-icon{transform:translateX(3px);background:rgba(255,255,255,.18)}
 .cta-sub{font-size:12px;color:var(--text-muted);margin-top:12px;letter-spacing:.02em}
 
-/* ===== REGALO â€” gift section ===== */
+/* ===== REGALO — gift section ===== */
 .regalo{
   background:var(--dark);
   padding:var(--section-v) 0;
@@ -927,7 +927,7 @@ body::before{
 /* body lock */
 body.locked{overflow:hidden}
 
-/* ===== STICKY CTA â€” mobile ===== */
+/* ===== STICKY CTA — mobile ===== */
 .sticky-bar{
   display:none;
   position:fixed;bottom:0;left:0;right:0;
@@ -1026,7 +1026,7 @@ body.locked{overflow:hidden}
 <!-- ===== GRAIN OVERLAY (fixed, pointer-events-none) ===== -->
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar" id="navbar" aria-label="NavegaciÃ³n principal">
+<nav class="navbar" id="navbar" aria-label="Navegación principal">
   <div class="nav-inner">
     <a href="#" class="logo" aria-label="Monte Sur - inicio">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="32" height="32">
@@ -1072,11 +1072,11 @@ body.locked{overflow:hidden}
   </div>
   <div class="hero-image" aria-label="Vista desde Monte Sur, Topocalma">
     <img src="assets/C1-hero-shot.png" alt="Vista panoramica de Monte Sur con el Pacifico al fondo" loading="eager" fetchpriority="high" width="1200" height="900"/>
-    <span class="hero-img-caption">Topocalma Â· VI Region</span>
+    <span class="hero-img-caption">Topocalma · VI Region</span>
   </div>
 </header>
 
-<!-- ===== PROBLEMA â€” dark editorial ===== -->
+<!-- ===== PROBLEMA — dark editorial ===== -->
 <section class="problema" id="problema">
   <div class="problema-deco" aria-hidden="true">07</div>
   <div class="container">
@@ -1088,14 +1088,14 @@ body.locked{overflow:hidden}
 <!-- ===== PROYECTO ===== -->
 <section class="proyecto" id="proyecto">
   <div class="container">
-    <!-- Metrics â€” no card boxes, breathing room -->
+    <!-- Metrics — no card boxes, breathing room -->
     <div class="metrics reveal">
       <div class="metric">
         <div class="metric-num" data-count="7" data-suffix="">7</div>
         <div class="metric-label">terrenos unicos</div>
       </div>
       <div class="metric">
-        <div class="metric-num" data-count="5000" data-suffix=" mÂ²">5.000 mÂ²</div>
+        <div class="metric-num" data-count="5000" data-suffix=" m²">5.000 m²</div>
         <div class="metric-label">superficie por lote</div>
       </div>
       <div class="metric">
@@ -1104,7 +1104,7 @@ body.locked{overflow:hidden}
       </div>
     </div>
 
-    <!-- Differentiators â€” spotlight border cards -->
+    <!-- Differentiators — spotlight border cards -->
     <div class="diff-grid">
 
       <div class="diff-card reveal" data-spotlight style="--float-delay:0s">
@@ -1222,18 +1222,18 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="lots-grid">
-      <div class="lot-card sold-lot reveal"><div class="lot-num">01</div><div class="lot-meta">5.000 m2 Â· vista NW</div><span class="lot-badge">VENDIDO</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">02</div><div class="lot-meta">5.000 m2 Â· vista N</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">03</div><div class="lot-meta">5.200 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d3"><div class="lot-num">04</div><div class="lot-meta">5.000 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal"><div class="lot-num">05</div><div class="lot-meta">5.300 m2 Â· vista SW</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d1"><div class="lot-num">06</div><div class="lot-meta">5.000 m2 Â· vista W</div><span class="lot-badge">DISPONIBLE</span></div>
-      <div class="lot-card avail reveal d2"><div class="lot-num">07</div><div class="lot-meta">5.100 m2 Â· vista NW</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card sold-lot reveal"><div class="lot-num">01</div><div class="lot-meta">5.000 m2 · vista NW</div><span class="lot-badge">VENDIDO</span></div>
+      <div class="lot-card avail reveal d1"><div class="lot-num">02</div><div class="lot-meta">5.000 m2 · vista N</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal d2"><div class="lot-num">03</div><div class="lot-meta">5.200 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal d3"><div class="lot-num">04</div><div class="lot-meta">5.000 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal"><div class="lot-num">05</div><div class="lot-meta">5.300 m2 · vista SW</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal d1"><div class="lot-num">06</div><div class="lot-meta">5.000 m2 · vista W</div><span class="lot-badge">DISPONIBLE</span></div>
+      <div class="lot-card avail reveal d2"><div class="lot-num">07</div><div class="lot-meta">5.100 m2 · vista NW</div><span class="lot-badge">DISPONIBLE</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== LIFESTYLE â€” accordion gallery ===== -->
+<!-- ===== LIFESTYLE — accordion gallery ===== -->
 <section class="lifestyle" id="galeria">
   <div class="container">
     <h2 class="lifestyle-title reveal">Aqui no solo inviertes. Surfeas, respiras diferente.</h2>
@@ -1530,14 +1530,14 @@ body.locked{overflow:hidden}
 const WEBHOOK = "https://nicoagenteia.app.n8n.cloud/webhook/monte-sur-lead";
 const PROYECTO = "Monte Sur";
 
-// ===== NAVBAR â€” IntersectionObserver on sentinel =====
+// ===== NAVBAR — IntersectionObserver on sentinel =====
 const navbar = document.getElementById('navbar');
 const sentinel = document.getElementById('navSentinel');
 new IntersectionObserver(([entry]) => {
   navbar.classList.toggle('scrolled', !entry.isIntersecting);
 }, {threshold: 0}).observe(sentinel);
 
-// ===== REVEAL ON SCROLL â€” IntersectionObserver (no window scroll listener) =====
+// ===== REVEAL ON SCROLL — IntersectionObserver (no window scroll listener) =====
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); revealIO.unobserve(e.target); }
@@ -1593,7 +1593,7 @@ const counterIO = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
 
-// ===== STICKY CTA â€” IntersectionObserver on hero =====
+// ===== STICKY CTA — IntersectionObserver on hero =====
 const stickyCta = document.getElementById('stickyCta');
 const hero = document.querySelector('.hero');
 let stickyShown = false;
@@ -1666,7 +1666,7 @@ document.addEventListener('keydown', (e) => {
   if(e.key === 'Escape') { closeLeadModal(); closeContactModal(); }
 });
 
-// Auto-open at ~50% page scroll â€” IntersectionObserver on midpoint sentinel
+// Auto-open at ~50% page scroll — IntersectionObserver on midpoint sentinel
 // CAMBIO 4: '.qualify' (#perfil) se movio al final; el auto-open del leadmagnet ahora se ancla a la galeria (punto medio)
 const midSentinel = document.querySelector('.lifestyle');
 new IntersectionObserver(([entry]) => {
