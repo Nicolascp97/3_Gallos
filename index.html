@@ -1224,7 +1224,7 @@ body.locked{overflow:hidden}
       <span class="sec-eye">PLANO MAESTRO</span>
       <h2 class="sec-title">Los 7 terrenos</h2>
       <p class="sec-sub">Cada uno con orientacion y vista unicas. La numeracion corresponde al plano oficial del proyecto.</p>
-      <div class="urgency-pill">Movimiento reciente - el Lote 01 fue vendido esta semana</div>
+      <div class="urgency-pill">Movimiento reciente - el Lote 07 fue vendido esta semana</div>
     </div>
 
     <div class="lot-status-row reveal d1">
@@ -1233,7 +1233,7 @@ body.locked{overflow:hidden}
     </div>
 
     <!-- PLANO MAESTRO INTERACTIVO: SVG generado de las coordenadas reales del SPR (Lote 5, Emilio Morales) -->
-    <!-- Correspondencia confirmada: 5-A=Lote01(vendido), 5-B=Lote02 ... 5-G=Lote07 -->
+    <!-- Correspondencia confirmada: 5-A=Lote01 ... 5-G=Lote07(vendido) -->
     <figure class="plano-figure reveal d1" aria-label="Plano maestro del loteo Monte Sur">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1020" id="planoSvg" style="display:block;width:100%;height:auto">
         <style>
@@ -1288,13 +1288,13 @@ body.locked{overflow:hidden}
     <p class="plano-hint reveal d2">Toca un lote para verlo resaltado en el plano</p>
 
     <div class="lots-grid">
-      <div class="lot-card sold-lot reveal" data-lot="01"><div class="lot-num">01</div><div class="lot-meta">5.000 m² · vista NW</div><span class="lot-badge">VENDIDO</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card avail reveal" data-lot="01"><div class="lot-num">01</div><div class="lot-meta">5.000 m² · vista NW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
       <div class="lot-card avail reveal d1" data-lot="02"><div class="lot-num">02</div><div class="lot-meta">5.000 m² · vista N</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
       <div class="lot-card avail reveal d2" data-lot="03"><div class="lot-num">03</div><div class="lot-meta">5.200 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
       <div class="lot-card avail reveal d3" data-lot="04"><div class="lot-num">04</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
       <div class="lot-card avail reveal" data-lot="05"><div class="lot-num">05</div><div class="lot-meta">5.300 m² · vista SW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
       <div class="lot-card avail reveal d1" data-lot="06"><div class="lot-num">06</div><div class="lot-meta">5.000 m² · vista W</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
-      <div class="lot-card avail reveal d2" data-lot="07"><div class="lot-num">07</div><div class="lot-meta">5.100 m² · vista NW</div><span class="lot-badge">DISPONIBLE</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
+      <div class="lot-card sold-lot reveal d2" data-lot="07"><div class="lot-num">07</div><div class="lot-meta">5.100 m² · vista NW</div><span class="lot-badge">VENDIDO</span><span class="lot-locate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver en el plano</span></div>
     </div>
   </div>
 </section>
@@ -1554,12 +1554,12 @@ body.locked{overflow:hidden}
       <div class="form-field">
         <select id="cf-lote" name="lote" class="select-placeholder">
           <option value="" disabled selected>Que lote te interesa?</option>
+          <option value="01">Lote 01 - 5.000 m2, Vista NW</option>
           <option value="02">Lote 02 - 5.000 m2, Vista N</option>
           <option value="03">Lote 03 - 5.200 m2, Vista W</option>
           <option value="04">Lote 04 - 5.000 m2, Vista W</option>
           <option value="05">Lote 05 - 5.300 m2, Vista SW</option>
           <option value="06">Lote 06 - 5.000 m2, Vista W</option>
-          <option value="07">Lote 07 - 5.100 m2, Vista NW</option>
           <option value="sin-preferencia">No tengo preferencia aun</option>
         </select>
       </div>
@@ -1636,7 +1636,7 @@ document.querySelectorAll('.diff-card').forEach(card => {
   // Marcar lote vendido (01) en el SVG
   polys.forEach(p => {
     const num = KML_MAP[p.dataset.lotKml] || KML_MAP[p.getAttribute('data-lot-kml')];
-    if(num === '01') p.classList.add('sold');
+    if(num === '07') p.classList.add('sold');
   });
 
   function activate(lotNum){
