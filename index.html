@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="description" content="Monte Sur: 7 terrenos unicos con vista al Pacifico en Topocalma, VI Region. Refugio de naturaleza a 2 horas de Santiago." />
+<meta name="description" content="Monte Sur: 6 terrenos de 5.000 m2 con vista al Pacifico en Topocalma, VI Region. Rol propio, factibilidad de agua y acceso real. A 2h de Santiago, trato directo." />
 <meta name="theme-color" content="#1E4019" />
-<title>Monte Sur · Refugio en Topocalma</title>
+<title>Terrenos con vista al mar en Topocalma &middot; Monte Sur</title>
+
+<!-- Open Graph / Social preview (preview al compartir por WhatsApp, Facebook, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Monte Sur - 3 Gallos" />
+<meta property="og:title" content="Terrenos con vista al mar en Topocalma - Monte Sur" />
+<meta property="og:description" content="6 terrenos de 5.000 m2 con vista al Pacifico. Rol propio, agua y acceso real. A 2h de Santiago, trato directo con los propietarios." />
+<meta property="og:image" content="https://3-gallos.vercel.app/assets/C1-hero-shot.png" />
+<meta property="og:url" content="https://3-gallos.vercel.app/" />
+<meta property="og:locale" content="es_CL" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Terrenos con vista al mar en Topocalma - Monte Sur" />
+<meta name="twitter:description" content="6 terrenos con vista al Pacifico. Rol, agua y acceso real. A 2h de Santiago." />
+<meta name="twitter:image" content="https://3-gallos.vercel.app/assets/C1-hero-shot.png" />
 
 <!-- Meta Pixel -->
 <script>
@@ -1074,8 +1087,12 @@ body.locked{overflow:hidden}
         <input type="email" id="hlf-email" name="email" placeholder="Tu email" autocomplete="email" required/>
         <span class="field-err" data-for="email"></span>
       </div>
+      <div class="form-field">
+        <input type="tel" id="hlf-wa" name="whatsapp" placeholder="Tu WhatsApp (opcional)" autocomplete="tel" inputmode="tel"/>
+        <span class="field-err" data-for="whatsapp"></span>
+      </div>
       <button type="submit" class="btn-submit">Quiero mi gu&iacute;a gratuita &rarr;</button>
-      <p class="hero-form-note">Sin spam. Solo informaci&oacute;n &uacute;til para tu decisi&oacute;n.</p>
+      <p class="hero-form-note">Te enviamos la gu&iacute;a al correo y resolvemos tus dudas por WhatsApp. Sin spam.</p>
     </form>
     <div class="success-msg hero-success" id="heroLeadSuccess">
       &iexcl;Listo! Te enviamos la gu&iacute;a a tu correo en los pr&oacute;ximos minutos.
@@ -1797,6 +1814,17 @@ const validators = {
   whatsapp: v => v.trim() === '' || v.replace(/\D/g,'').length >= 8 || 'Numero invalido'
 };
 
+// Normaliza un telefono chileno a formato 569XXXXXXXX (lo que espera n8n / el agente WhatsApp).
+// Acepta "9 1234 5678", "+56 9 1234 5678", "0912345678", "56912345678", etc.
+function normalizeCLPhone(raw){
+  let d = (raw || '').replace(/\D/g,'');      // solo digitos
+  if(!d) return '';
+  if(d.startsWith('56')) d = d.slice(2);      // quita codigo pais para trabajar el numero nacional
+  d = d.replace(/^0+/,'');                     // quita ceros iniciales (09... -> 9...)
+  if(d.length === 8) d = '9' + d;             // agrega prefijo movil si falta
+  return '56' + d;                            // reincorpora codigo pais
+}
+
 function setupForm(formId, successId, tipo, extraData = {}) {
   const form = document.getElementById(formId);
   const success = document.getElementById(successId);
@@ -1839,6 +1867,9 @@ function setupForm(formId, successId, tipo, extraData = {}) {
     });
 
     if(!valid) return;
+
+    // Normaliza el WhatsApp a 569XXXXXXXX antes de mandarlo al CRM / agente
+    if(data.whatsapp) data.whatsapp = normalizeCLPhone(data.whatsapp);
 
     const btn = form.querySelector('.btn-submit');
     btn.disabled = true; btn.textContent = 'Enviando...';
